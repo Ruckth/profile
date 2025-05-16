@@ -33,7 +33,6 @@ export default function CompoundCalculator() {
       annualContribution
     } = inputs;
 
-    const monthlyContribution = annualContribution / 12;
     const rate = monthlyRate / 100;
     const years = months / 12;
 

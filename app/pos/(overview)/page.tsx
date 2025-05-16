@@ -1,6 +1,6 @@
 
 import CardList from "../../ui/pos/card-list";
-import LoadingBall from "../../ui/loading-ball";
+// import LoadingBall from "../../ui/loading-ball";
 import Search from "@/app/ui/pos/search";
 import Pagination from "@/app/ui/pos/pagination";
 import { fetchPosPages,fetchPosTotal } from "@/app/lib/pos/data";

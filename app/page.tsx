@@ -2,7 +2,7 @@ import { Github, Linkedin, Email } from "./ui/profile/external-chip";
 import { FadeText, TypingText } from "./ui/fade-text";
 import ExperienceCard, { UXUIFreelance } from "./ui/profile/experience-card";
 import ProjectCard from "./ui/profile/project-card";
-
+import { RiScrollToBottomLine } from "react-icons/ri";
 export default async function Home() {
   return (
     <main className="
@@ -23,7 +23,7 @@ export default async function Home() {
         <p className="text-lg text-gray-200">
           <TypingText text="UX/UI Designer & Front-end Dev" speed={50} />
         </p>
-        
+      
         {/* Navigation */}
         <nav className="mt-6 hidden lg:block">
           <ul className="space-y-2">
@@ -39,6 +39,7 @@ export default async function Home() {
             </li>
           </ul>
         </nav>
+        <RiScrollToBottomLine className="mt-6 text-2xl text-gray-300 animate-bounce" />
         
         {/* spacer */}
         <div className="flex-1" />

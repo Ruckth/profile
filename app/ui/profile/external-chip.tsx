@@ -43,7 +43,7 @@ export function Linkedin({ text, href }: ExternalLinkProps) {
     )
 }
 
-export function Email({ text, href }: ExternalLinkProps) {
+export function Email({ text }: ExternalLinkProps) {
     return (
         <Link
             href={`mailto:rugbykritsakorn@gmail.com`}
