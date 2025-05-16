@@ -1,6 +1,5 @@
 
 import CardList from "../../ui/pos/card-list";
-// import LoadingBall from "../../ui/loading-ball";
 import Search from "@/app/ui/pos/search";
 import Pagination from "@/app/ui/pos/pagination";
 import { fetchPosPages,fetchPosTotal } from "@/app/lib/pos/data";
@@ -42,7 +41,6 @@ export default async function PosPage(props: {
           <CardList query={query} currentPage={currentPage} />
         </div>
         <div className="col-span-2 flex flex-col">
-          {/* <LoadingBall count={5} /> */}
           <Suspense fallback={<div>Loading</div>}>
             <CheckoutCard />
           </Suspense>

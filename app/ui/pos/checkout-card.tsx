@@ -43,7 +43,7 @@ export default function CheckoutCard() {
     const fetchItemsFromQuery = async () => {
       const itemIds: string[] = [];
       
-      for (const [key, value] of searchParams.entries()) {
+      for (const [key] of searchParams.entries()) {
         if (key.startsWith('item-')) {
           const itemId = key.replace('item-', '');
           itemIds.push(itemId);

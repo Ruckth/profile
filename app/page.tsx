@@ -52,7 +52,7 @@ export default async function Home() {
 
       {/* Scroll section */}
       <div className="flex flex-col mt-8 lg:mt-0">
-        <p>I'm just and software engineering loving to build and solve software problem. Mostly experience in UX/UI design</p>
+        <p>I&apos;m just and software engineering loving to build and solve software problem. Mostly experience in UX/UI design</p>
         <h2 id="experience" className="mt-4 text-2xl font-bold pt-8 scroll-mt-8">Experience</h2>
         <ExperienceCard
           jobTitle="Developer Internship"
