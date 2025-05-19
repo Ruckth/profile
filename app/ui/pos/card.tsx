@@ -3,49 +3,38 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
-
-type ItemCardProps = {
-  id: string;  // This will receive productId
-  title: string;  // This will receive productName
-  description?: string;  // Optional since we don't have this in our data
-  criteria: string | string[];  // This can be category
-  imageUrl?: string;
-  price: number;
-  stock?: number;  // Added stock property
-};
+import { Item } from '@/app/lib/pos/placeholder-data'
 
 export default function Card({ 
-  id, 
-  title, 
-  description, 
-  criteria, 
-  imageUrl, 
+  no,
+  productId,
+  productName,
+  category,
   price,
-  stock 
-}: ItemCardProps) {
+  imageUrl,
+  stock,
+}: Item) {
   const router = useRouter()
   const searchParams = useSearchParams()
   const [quantity, setQuantity] = useState<number>(0)
   
-  // Get quantity from URL on initial load and when URL changes
   useEffect(() => {
     const params = new URLSearchParams(searchParams)
-    const itemParam = params.get(`item-${id}`)
+    const itemParam = params.get(`item-${productId}`)
     if (itemParam) {
       setQuantity(parseInt(itemParam, 10))
     } else {
       setQuantity(0)
     }
-  }, [searchParams, id])
+  }, [searchParams, productId])
   
-  // Add item to cart by updating query params
   const updateQuantity = (newQuantity: number) => {
     const params = new URLSearchParams(searchParams.toString())
     if (newQuantity <= 0) {
-      params.delete(`item-${id}`)
+      params.delete(`item-${productId}`)
       setQuantity(0)
     } else {
-      params.set(`item-${id}`, newQuantity.toString())
+      params.set(`item-${productId}`, newQuantity.toString())
       setQuantity(newQuantity)
     }
     router.push(`?${params.toString()}`, { scroll: false })
@@ -55,25 +44,12 @@ export default function Card({
   const decrementQuantity = () => updateQuantity(quantity - 1)
 
   return (
-    <div className=" 
-      overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white flex flex-col
-      /* Width for different screen sizes - reduced by 20% */
-      w-full sm:w-52 md:w-58 lg:w-64
-      /* Height for different screen sizes - reduced by 20% */
-      h-full sm:h-64 md:h-76 lg:h-76
-    ">
+    <div className="overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white flex flex-col w-full sm:w-52 md:w-58 lg:w-64 h-full sm:h-64 md:h-76 lg:h-76">
       {/* Image Container */}
-      <div className="
-        /* Base styles */
-        relative 
-        /* Image height for different screen sizes - reduced by 20% */
-        h-24 sm:h-28 md:h-36 lg:h-40
-        /* Full width across all screen sizes */
-        w-full
-      ">
+      <div className="relative h-24 sm:h-28 md:h-36 lg:h-40 w-full">
         <Image 
           src={imageUrl || "/api/placeholder/400/320"} 
-          alt={title}
+          alt={productName}
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 768px) 256px, (max-width: 1024px) 307px, 358px"
           className="object-cover"
@@ -82,58 +58,16 @@ export default function Card({
       </div>
       
       {/* Content Container */}
-      <div className="
-        /* Base styles - reduced padding */
-        p-2 sm:p-3 md:p-4 lg:p-5 
-        flex-grow flex flex-col
-      ">
-        <h3 className="
-          /* Title text size - slightly reduced */
-          text-sm sm:text-base md:text-lg lg:text-xl
-          font-bold mb-1 text-gray-900
-        ">
-          {title}
+      <div className="p-2 sm:p-3 md:p-4 lg:p-5 flex-grow flex flex-col">
+        <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 text-gray-900">
+          {productName}
         </h3>
         
-        <p className="
-          /* Description text size - slightly reduced */
-          text-xs sm:text-xs md:text-sm lg:text-base
-          text-gray-600 mb-2
-          line-clamp-2 sm:line-clamp-2 md:line-clamp-3
-        ">
-          {description}
-        </p>
-        
-        {/* Criteria - can be an array or string */}
+        {/* Category tag */}
         <div className="mb-2">
-          {typeof criteria === 'string' ? (
-            <span className="
-              /* Criteria tag text size - slightly reduced */
-              text-xs sm:text-xs md:text-xs
-              bg-gray-100 text-gray-700 
-              px-1 sm:px-1.5 py-0.5 
-              rounded-full
-            ">
-              {criteria}
-            </span>
-          ) : Array.isArray(criteria) ? (
-            <div className="flex flex-wrap gap-1">
-              {criteria.map((item, index) => (
-                <span 
-                  key={index} 
-                  className="
-                    /* Criteria tag text size - slightly reduced */
-                    text-xs sm:text-xs md:text-xs
-                    bg-gray-100 text-gray-700 
-                    px-1 sm:px-1.5 py-0.5 
-                    rounded-full
-                  "
-                >
-                  {item}
-                </span>
-              ))}
-            </div>
-          ) : null}
+          <span className="text-xs sm:text-xs md:text-xs bg-gray-100 text-gray-700 px-1 sm:px-1.5 py-0.5 rounded-full">
+            {category}
+          </span>
         </div>
         
         {/* Price, Stock and Add to Cart Section */}
@@ -161,32 +95,16 @@ export default function Card({
               <div className="flex items-center gap-2">
                 <button 
                   onClick={decrementQuantity}
-                  className="
-                    /* Decrement button size - reduced */
-                    w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6
-                    flex items-center justify-center 
-                    rounded-full bg-pink-700 hover:bg-pink-300 focus:outline-none transition-colors
-                    text-xs sm:text-xs md:text-sm text-white
-                  "
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full bg-pink-700 hover:bg-pink-300 focus:outline-none transition-colors text-xs sm:text-xs md:text-sm text-white"
                 >
                   -
                 </button>
-                <span className="
-                  /* Quantity text size - reduced */
-                  text-xs sm:text-xs md:text-sm 
-                  font-medium text-gray-500
-                ">
+                <span className="text-xs sm:text-xs md:text-sm font-medium text-gray-500">
                   {quantity}
                 </span>
                 <button 
                   onClick={addToCart}
-                  className="
-                    /* Increment button size - reduced */
-                    w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6
-                    flex items-center justify-center 
-                    rounded-full bg-green-600 text-white hover:bg-green-700 focus:outline-none transition-colors
-                    text-xs sm:text-xs md:text-sm
-                  "
+                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full bg-green-600 text-white hover:bg-green-700 focus:outline-none transition-colors text-xs sm:text-xs md:text-sm"
                 >
                   +
                 </button>

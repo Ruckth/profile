@@ -2,7 +2,7 @@ import { Github, Linkedin, Email } from "./ui/profile/external-chip";
 import { FadeText, TypingText } from "./ui/fade-text";
 import ExperienceCard, { UXUIFreelance } from "./ui/profile/experience-card";
 import ProjectCard from "./ui/profile/project-card";
-import { RiScrollToBottomLine } from "react-icons/ri";
+import { GoListOrdered } from "react-icons/go";
 export default async function Home() {
   return (
     <main className="
@@ -23,24 +23,24 @@ export default async function Home() {
         <p className="text-lg text-gray-200">
           <TypingText text="UX/UI Designer & Front-end Dev" speed={50} />
         </p>
-      
+
         {/* Navigation */}
         <nav className="mt-6 hidden lg:block">
           <ul className="space-y-2">
             <li>
               <a href="#experience" className="text-gray-300 hover:text-white transition-colors">
-                Experience
+               View Experience
               </a>
             </li>
             <li>
               <a href="#projects" className="text-gray-300 hover:text-white transition-colors">
-                Projects
+               View Projects
               </a>
             </li>
           </ul>
         </nav>
-        <RiScrollToBottomLine className="mt-6 text-2xl text-gray-300 animate-bounce" />
-        
+
+
         {/* spacer */}
         <div className="flex-1" />
         <div className="mt-auto flex gap-4">
@@ -74,13 +74,24 @@ export default async function Home() {
           skill={["Emotional intelligence", "Comunication"]}
         />
 
-        <h2 id="projects" className="mt-4 text-2xl font-bold pt-8 scroll-mt-8">Projects</h2>
-        <div className="flex flex-col" />
-        <ProjectCard
-          imageSrc="/projects/my-app.png"
-          title="My Awesome App"
-          description="A web platform that tracks fitness progress and provides real-time feedback."
-        />
+        <div className="flex flex-col gap-2">
+          <h2 id="projects" className="mt-4 text-2xl font-bold pt-8 scroll-mt-8">Projects</h2>
+          <ProjectCard
+            imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2kb6gF74SPZhpurSoMd3RBam7bVIgX4iyUj6D"
+            gitHubhref="https://github.com/Ruckth/nextjs-dashboard"
+            websiteHref="https://nextjs-dashboard-sigma-bice-89.vercel.app/dashboard"
+            title="Next Dashboard"
+            description="A full stack personal project built to learn Next.js. This web application allows users to manage invoices, including creation, tracking, and status updates."
+          />
+
+          <ProjectCard
+            imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2kb6gF74SPZhpurSoMd3RBam7bVIgX4iyUj6D"
+            title="POS Demo"
+            description="A personal project built to learn Next.js. This fully front-end web application simulates a POS (Point of Sale) system — it's fully functional and ready to try out."
+            websiteHref="/pos"
+          />
+
+        </div>
       </div>
     </main>
   );

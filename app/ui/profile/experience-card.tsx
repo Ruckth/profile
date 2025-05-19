@@ -21,7 +21,7 @@ export function SkillChip({ text }: { text: string }) {
 
 export default function ExperienceCard({ jobTitle, jobDescription, jobPeriod, company, companyLink, skill }: ExperienceCardProps) {
     return (
-        <div className="flex flex-col px-4 py-4">
+        <div className="flex flex-col px-4 py-4 rounded-xl ">
             <div className="flex justify-between">
                 <span className="text-l font-bold">
                     {jobTitle}<br />

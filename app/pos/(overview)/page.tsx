@@ -4,7 +4,7 @@ import Search from "@/app/ui/pos/search";
 import Pagination from "@/app/ui/pos/pagination";
 import { fetchPosPages,fetchPosTotal } from "@/app/lib/pos/data";
 import CurrentDate from "@/app/ui/current-date";
-import CheckoutCard from "@/app/ui/pos/checkout-card";
+import CheckoutCard from "@/app/ui/pos/cart-card";
 import { Suspense } from "react";
 
 function TotalItem({ totalItems }: { totalItems: number }) {
