@@ -2,7 +2,7 @@ import { Github, Linkedin, Email } from "./ui/profile/external-chip";
 import { FadeText, TypingText } from "./ui/fade-text";
 import ExperienceCard, { UXUIFreelance } from "./ui/profile/experience-card";
 import ProjectCard from "./ui/profile/project-card";
-import { GoListOrdered } from "react-icons/go";
+
 export default async function Home() {
   return (
     <main className="

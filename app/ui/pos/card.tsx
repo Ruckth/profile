@@ -6,7 +6,6 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { Item } from '@/app/lib/pos/placeholder-data'
 
 export default function Card({ 
-  no,
   productId,
   productName,
   category,

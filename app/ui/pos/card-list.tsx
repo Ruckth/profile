@@ -17,7 +17,7 @@ export default async function CardList({
         <div className="flex flex-wrap gap-6">
           {items.map((item) => (
             <Card
-              key={item.productId}
+              key={item.no}
               no={item.no}
               productId={item.productId}
               productName={item.productName}
