@@ -50,7 +50,7 @@ export default function Card({
           src={imageUrl || "/api/placeholder/400/320"} 
           alt={productName}
           fill
-          sizes="(max-width: 640px) 100vw, (max-width: 768px) 256px, (max-width: 1024px) 307px, 358px"
+          sizes="min-w-full min-h-full"
           className="object-cover"
           priority
         />

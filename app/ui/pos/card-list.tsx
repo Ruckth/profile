@@ -2,7 +2,6 @@
 
 import Card from './card';
 import { fetchFilteredItems } from "../../lib/pos/data";
-import { Item } from '../../lib/pos/data';
 
 export default async function CardList({
     query,
