@@ -6,7 +6,6 @@ import Search from "@/app/ui/pos/search";
 import Pagination from "@/app/ui/pos/pagination";
 import { fetchPosTotal } from '../../lib/pos/data';
 
-
 function TotalItem({ totalItems }: { totalItems: number }) {
   return (
     <div className="flex justify-center">
@@ -23,8 +22,9 @@ export default async function CardList({
     page?: string;
   };
 }) {
-    const query = searchParams?.query || '';
-    const currentPage = Number(searchParams?.page) || 1;
+    const params = await searchParams;
+    const query = params?.query || '';
+    const currentPage = Number(params?.page) || 1;
     const totalPages = await fetchPosPages(query);
     const totalItems = await fetchPosTotal(query);
     const items = await fetchFilteredItems(query, currentPage);
