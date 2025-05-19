@@ -4,6 +4,7 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { MdEmail,MdWebAsset } from "react-icons/md";
 import { LiaFigma } from "react-icons/lia";
+import { FaFilePdf } from "react-icons/fa6";
 
 
 interface ExternalLinkProps {
@@ -90,6 +91,23 @@ export function Web({ text, href }: ExternalLinkProps) {
             <div className="text-sm hidden group-hover:flex items-center gap-1"><FiExternalLink/>{text}</div>
             {/* Show when not hovered */}
             <MdWebAsset className="text-xl block group-hover:hidden" />
+        </Link>
+    )
+}
+
+export function Resume({ text,href }: ExternalLinkProps) {
+    return (
+        <Link
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group bg-white/5 backdrop-blur-sm py-2 px-4 text-white rounded-md hover:bg-gray-600 transition-colors flex items-center gap-2"
+        >
+            {/* Show on hover */}
+            <FiExternalLink className="text-xl hidden group-hover:block" />
+            {/* Show when not hovered */}
+            <FaFilePdf className="text-xl block group-hover:hidden" />
+            {text}
         </Link>
     )
 }

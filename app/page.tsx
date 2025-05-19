@@ -1,4 +1,4 @@
-import { Github, Linkedin, Email } from "./ui/profile/external-chip";
+import { Github, Linkedin, Email,Resume } from "./ui/profile/external-chip";
 import { FadeText, TypingText } from "./ui/fade-text";
 import ExperienceCard, { UXUIFreelance } from "./ui/profile/experience-card";
 import ProjectCard from "./ui/profile/project-card";
@@ -74,6 +74,10 @@ export default async function Home() {
           skill={["Emotional intelligence", "Comunication"]}
         />
 
+        <div className="flex mt-2" >
+        <Resume text="View my resume" href="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2owNpMCQbntCPcxGhvL38DJ5sAMYpS4mFfRjB" />
+        </div>
+      
         <div className="flex flex-col gap-2">
           <h2 id="projects" className="mt-4 text-2xl font-bold pt-8 scroll-mt-8">Projects</h2>
           <ProjectCard
@@ -87,7 +91,7 @@ export default async function Home() {
           <ProjectCard
             imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2kb6gF74SPZhpurSoMd3RBam7bVIgX4iyUj6D"
             title="POS Demo"
-            description="A personal project built to learn Next.js. This fully front-end web application simulates a POS (Point of Sale) system — it's fully functional and ready to try out."
+            description="(STATUS: Rebuilding)A personal project built to learn Next.js. This front-end web application simulates a POS (Point of Sale) system — it's fully functional and ready to try out."
             websiteHref="/pos"
           />
 
