@@ -9,8 +9,8 @@ export default function TopNav() {
         <div className="flex justify-between h-16">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/pos" className="text-xl font-bold text-gray-200">
-              POS System
+            <Link href="/" className="text-xl font-bold text-gray-200">
+             Back to profile
             </Link>
           </div>
 
