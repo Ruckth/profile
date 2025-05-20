@@ -89,7 +89,7 @@ export default async function Home() {
           />
 
           <ProjectCard
-            imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2kb6gF74SPZhpurSoMd3RBam7bVIgX4iyUj6D"
+            imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2ESuMLajykPtRVZb7jpWoJSLr6xuHmz5MN82c"
             title="POS Demo"
             description="(STATUS: Rebuilding)A personal project built to learn Next.js. This front-end web application simulates a POS (Point of Sale) system — it's fully functional and ready to try out."
             websiteHref="/pos"
