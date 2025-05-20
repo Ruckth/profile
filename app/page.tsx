@@ -59,7 +59,7 @@ export default async function Home() {
           company="Teibto Co., Ltd."
           companyLink="https://teibto.com/"
           jobPeriod="Jane - April 2025"
-          jobDescription="d"
+          jobDescription="Assisted in developing and customizing ERP solutions with a focus on document and PDF formatting using Oracle development tools. Implemented front-end interfaces using JavaScript, HTML, and CSS. Supported debugging, documentation, and user communication to ensure accurate and visually consistent output."
           skill={["Oracle ERP", "Oracle dev tools", "JS.", "HTML&CSS", "Comunication"]}
         />
         <div className="flex-1 border-b-1" />
@@ -70,7 +70,7 @@ export default async function Home() {
           company="Brasserie Phuket"
           companyLink="https://maps.app.goo.gl/K7CJj99siCnXCAmA8"
           jobPeriod="May - July 2021"
-          jobDescription="d"
+          jobDescription="Provided exceptional customer service in a high-paced restaurant environment. Managed orders, resolved customer concerns, and maintained a welcoming atmosphere. Developed strong communication and emotional intelligence through daily interactions with diverse clientele."
           skill={["Emotional intelligence", "Comunication"]}
         />
 
