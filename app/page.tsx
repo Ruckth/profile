@@ -78,7 +78,7 @@ export default async function Home() {
         <Resume text="View my resume" href="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2owNpMCQbntCPcxGhvL38DJ5sAMYpS4mFfRjB" />
         </div>
       
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col">
           <h2 id="projects" className="mt-4 text-2xl font-bold pt-8 scroll-mt-8">Projects</h2>
           <ProjectCard
             imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2kb6gF74SPZhpurSoMd3RBam7bVIgX4iyUj6D"
@@ -94,6 +94,27 @@ export default async function Home() {
             description="(STATUS: Rebuilding)A personal project built to learn Next.js. This front-end web application simulates a POS (Point of Sale) system — it's fully functional and ready to try out."
             websiteHref="/pos"
           />
+          <ProjectCard
+            imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2ye5tzTkJmF2aSUtLi5xRrwyv0ozTQ34CuMY7"
+            title="MFU HLLC system"
+            description="Designed a web platform for Mae Fah Luang University to welcome new students, track activities, and vote in a fresher contest. Collaborated with media and graphic teams to create engaging, user-friendly interfaces in Figma."
+            figmaHref="https://www.figma.com/design/FzbBj77YorUpXq0LBAt9uF/HLLC2023?node-id=536-2353&t=c3bEgU07ncIstziF-1"
+          />
+          <ProjectCard
+            imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2VOpID6mZkpFwa3bYTzHXWAOG4eRstig1ncIS"
+            title="BCNC University Medical Platform"
+            description="Designed a medical platform for BCNC University featuring a disease risk assessment form, learning content tracking, and a map-based dashboard for admins to monitor disease density and manage content."
+            figmaHref="https://www.figma.com/design/FzbBj77YorUpXq0LBAt9uF/HLLC2023?node-id=536-2353&t=c3bEgU07ncIstziF-1"
+          />
+          <ProjectCard
+            imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2oyu3lCzQbntCPcxGhvL38DJ5sAMYpS4mFfRj"
+            title="Uni Personal Project"
+            description="Designed prototype of AI generated design mobile web application."
+            figmaHref="https://www.figma.com/proto/GJ2S7JMmPOsqiwUbqupIrv/Company-stimulation?node-id=12-294&p=f&t=hipmc7WjiJMKrwX8-0&scaling=scale-down&content-scaling=fixed&page-id=0:1&starting-point-node-id=12:294"
+          />
+          
+
+
 
         </div>
       </div>

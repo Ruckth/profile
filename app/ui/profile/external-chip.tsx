@@ -46,7 +46,7 @@ export function Linkedin({ text, href }: ExternalLinkProps) {
     )
 }
 
-export function Email({ text }: ExternalLinkProps) {
+export function Email({ text, href }: ExternalLinkProps) {
     return (
         <Link
             href={`mailto:rugbykritsakorn@gmail.com`}
@@ -63,10 +63,10 @@ export function Email({ text }: ExternalLinkProps) {
     )
 }
 
-export function Figma({ text }: ExternalLinkProps) {
+export function Figma({ text, href }: ExternalLinkProps) {
     return (
         <Link
-            href={`mailto:rugbykritsakorn@gmail.com`}
+            href={href}
             target="_blank"
             rel="noopener noreferrer"
             className="group py-2 px-4 text-pink-300 rounded-md hover:text-white transition-colors flex items-center gap-2 "
