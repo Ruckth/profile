@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Item } from '@/app/lib/pos/placeholder-data'
+import { FaShoppingCart } from 'react-icons/fa'
 
-export default function Card({ 
+export default function Card({
   productId,
   productName,
   category,
@@ -16,7 +17,7 @@ export default function Card({
   const router = useRouter()
   const searchParams = useSearchParams()
   const [quantity, setQuantity] = useState<number>(0)
-  
+
   useEffect(() => {
     const params = new URLSearchParams(searchParams)
     const itemParam = params.get(`item-${productId}`)
@@ -26,91 +27,101 @@ export default function Card({
       setQuantity(0)
     }
   }, [searchParams, productId])
-  
+
   const updateQuantity = (newQuantity: number) => {
     const params = new URLSearchParams(searchParams.toString())
     if (newQuantity <= 0) {
       params.delete(`item-${productId}`)
       setQuantity(0)
-    } else {
+    } else if (stock && newQuantity <= stock) {
       params.set(`item-${productId}`, newQuantity.toString())
       setQuantity(newQuantity)
     }
     router.push(`?${params.toString()}`, { scroll: false })
   }
 
-  const addToCart = () => updateQuantity(quantity + 1)
+  const addToCart = () => {
+    if (stock && quantity < stock) {
+      updateQuantity(quantity + 1)
+    }
+  }
+
   const decrementQuantity = () => updateQuantity(quantity - 1)
 
   return (
-    <div className="overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-300 bg-white flex flex-col w-full sm:w-52 md:w-58 lg:w-64 h-full sm:h-64 md:h-76 lg:h-76">
+    <div className="bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300">
       {/* Image Container */}
-      <div className="relative h-24 sm:h-28 md:h-36 lg:h-40 w-full">
-        <Image 
-          src={imageUrl || "/api/placeholder/400/320"} 
+      <div className="relative w-full aspect-square">
+        <Image
+          src={imageUrl || "/api/placeholder/400/320"}
           alt={productName}
           fill
-          sizes="min-w-full min-h-full"
-          className="object-cover"
+          className="object-cover rounded-t-lg"
+          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           priority
         />
-      </div>
-      
-      {/* Content Container */}
-      <div className="p-2 sm:p-3 md:p-4 lg:p-5 flex-grow flex flex-col">
-        <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold mb-1 text-gray-900">
-          {productName}
-        </h3>
-        
         {/* Category tag */}
-        <div className="mb-2">
-          <span className="text-xs sm:text-xs md:text-xs bg-gray-100 text-gray-700 px-1 sm:px-1.5 py-0.5 rounded-full">
+        <div className="absolute bottom-2 right-2">
+          <span className="text-xs bg-white/80 backdrop-blur-sm text-gray-700 px-2 py-1 rounded-full shadow-sm">
             {category}
           </span>
         </div>
-        
-        {/* Price, Stock and Add to Cart Section */}
-        <div className="flex items-center justify-between mt-auto pt-2">
-          <div className="flex flex-col">
-            <span className="font-bold text-gray-900">
+      </div>
+
+      {/* Content Container */}
+      <div className="p-4">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
+          {productName}
+        </h3>
+
+        <div className="flex items-center justify-between">
+          <div className="space-y-1">
+            <span className="text-xl font-bold text-gray-900">
               ฿{typeof price === 'number' ? price.toLocaleString() : price}
             </span>
-            {stock !== undefined && (
-              <span className="text-xs text-gray-500">
-                Stock: {stock}
-              </span>
+            {stock !== undefined && stock > 0 &&(
+              <p className="text-sm text-gray-500">
+                Stock: {stock} {quantity === stock && stock > 0 && (
+                  <span className="text-orange-500">(Max)</span>
+                )}
+              </p>
             )}
           </div>
-          
+
           {stock && stock > 0 ? (
             quantity === 0 ? (
-              <button 
+              <button
                 onClick={addToCart}
-                className="px-3 py-1 rounded-full bg-blue-600 text-white hover:bg-blue-700 focus:outline-none transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600 text-white hover:bg-blue-700 focus:outline-none transition-colors"
               >
-                Add to Cart
+                <FaShoppingCart className="text-lg" />
+                <span>Add</span>
               </button>
             ) : (
-              <div className="flex items-center gap-2">
-                <button 
+              <div className="flex items-center gap-2 bg-gray-100 rounded-full p-1">
+                <button
                   onClick={decrementQuantity}
-                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full bg-pink-700 hover:bg-pink-300 focus:outline-none transition-colors text-xs sm:text-xs md:text-sm text-white"
+                  className="w-8 h-8 flex items-center justify-center rounded-full bg-orange-500 hover:bg-orange-700 text-white focus:outline-none transition-colors"
                 >
                   -
                 </button>
-                <span className="text-xs sm:text-xs md:text-sm font-medium text-gray-500">
+                <span className="w-8 text-center font-medium text-gray-600">
                   {quantity}
                 </span>
-                <button 
+                <button
                   onClick={addToCart}
-                  className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 flex items-center justify-center rounded-full bg-green-600 text-white hover:bg-green-700 focus:outline-none transition-colors text-xs sm:text-xs md:text-sm"
+                  className={`w-8 h-8 flex items-center justify-center rounded-full ${quantity >= stock
+                      ? 'bg-gray-400 cursor-not-allowed'
+                      : 'bg-green-600 hover:bg-green-700'
+                    } text-white focus:outline-none transition-colors`}
+                  disabled={quantity >= stock}
                 >
                   +
                 </button>
               </div>
             )
           ) : (
-            <span className="text-xs text-red-500">Out of Stock</span>
+            <span className="text-sm font-medium text-red-500">Out of Stock</span>
           )}
         </div>
       </div>
