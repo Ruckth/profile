@@ -76,7 +76,7 @@ export default async function Home() {
         />
 
         <div className="flex mt-2" >
-        <Resume text="View my resume" href="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2bMBaDjUDxvepjHG9LTUYAcfuRXqlCFgdPyZz" />
+        <Resume text="View my resume" href="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz264BmcRjvPDd7URpZnEMGKTyfs9NWSYz8teLQ" />
         </div>
       
         <div className="flex flex-col">
