@@ -6,6 +6,7 @@ import ProjectCard from "./ui/profile/project-card";
 export default async function Home() {
   return (
     <main className="
+      px-4 mt-4
       sm:mt-6 sm:px-6 
       md:mt-8 md:px-8 
       lg:mt-24 lg:px-24
