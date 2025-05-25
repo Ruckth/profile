@@ -82,18 +82,18 @@ export default async function Home() {
         <div className="flex flex-col">
           <h2 id="projects" className="mt-4 text-2xl font-bold pt-8 scroll-mt-8">Projects</h2>
           <ProjectCard
+            imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2EbI9q1ykPtRVZb7jpWoJSLr6xuHmz5MN82c3"
+            title="POS Demo"
+            description="A personal project built to learn Next.js. This front-end web application simulates a POS (Point of Sale) system — it's fully functional and ready to try out."
+            websiteHref="https://pos-sytem-nine.vercel.app/"
+            gitHubhref="https://github.com/Ruckth/POS-sytem/tree/main/pos-app"
+          />
+          <ProjectCard
             imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2kb6gF74SPZhpurSoMd3RBam7bVIgX4iyUj6D"
             gitHubhref="https://github.com/Ruckth/nextjs-dashboard"
             websiteHref="https://nextjs-dashboard-sigma-bice-89.vercel.app/dashboard"
             title="Next Dashboard"
             description="A full stack personal project built to learn Next.js. This web application allows users to manage invoices, including creation, tracking, and status updates."
-          />
-
-          <ProjectCard
-            imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2ESuMLajykPtRVZb7jpWoJSLr6xuHmz5MN82c"
-            title="POS Demo"
-            description="(STATUS: Rebuilding)A personal project built to learn Next.js. This front-end web application simulates a POS (Point of Sale) system — it's fully functional and ready to try out."
-            websiteHref="/pos"
           />
           <ProjectCard
             imageSrc="https://6ef1uc7a62.ufs.sh/f/YuAp8ZPhEJz2ye5tzTkJmF2aSUtLi5xRrwyv0ozTQ34CuMY7"
